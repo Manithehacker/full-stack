@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const register = require("../controllers/user");
-const request = require("../controllers/test")
 
-router.post("/login", register.testFunction);
-router.get("/",request.getRequest)
 
+router.post("/post", register.postFunction);
+router.get("/get",register.getRequest)
+router.put("/update",register.update)
+router.delete("/delete/:id",register.deleteReq)
 
 module.exports = router;
