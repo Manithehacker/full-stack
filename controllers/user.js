@@ -48,7 +48,7 @@ const update = async (req, res) => {
       ...req.body,
     };
 
-    const success = await testModel.findOne(data);
+  
 
     const update = await testModel.updateOne(data, {
       $set: { username: "venichlm" },
@@ -81,9 +81,28 @@ const deleteReq = async (req, res) => {
     });
   }
 };
+
+//profile file upload via post method
+const upload=async(req,res)=>{
+  try{
+    const data=req.file
+    console.log(data)
+    const success=await testModel.create({File:data.filename})
+    res.json({
+      data:success,
+      message:"success"
+    })
+  }catch(err){
+    res.json({
+      Error:err.message
+    })
+
+  }
+}
 module.exports = {
   postFunction,
   getRequest,
   update,
   deleteReq,
+  upload,
 };

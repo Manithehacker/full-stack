@@ -7,6 +7,9 @@ const testSchem=new mongoose.Schema({
     },
     password:{
         type:String
+    },
+    File:{
+        type:String
     }
 })
 
